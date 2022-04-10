@@ -58,6 +58,11 @@ public class HuffmanCoding {
         System.out.println(root);
 
         binaryEncode(root, new String());
+        String result = new String();
+        for (int i = 0; i < text.length(); i++){
+            result = result + binaryCodeTable.get(text.charAt(i)) +" ";
+        }
+        System.out.println(result);
     }
 
     private static void binaryEncode(Node n, String s) {
