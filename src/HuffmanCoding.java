@@ -17,6 +17,8 @@ class FrequencyComparator implements Comparator<Node>{
 
 public class HuffmanCoding {
     public static PriorityQueue<Node> queue;
+    public static HashMap<Character, String> binaryCodeTable = new HashMap<>();
+
     public static Node huffmanEncoding(int n){
         for (int i = 0; i < n - 1; i++){
             Node temp = new Node();
@@ -54,5 +56,19 @@ public class HuffmanCoding {
         System.out.println(number);
         Node root = huffmanEncoding(number);
         System.out.println(root);
+
+        binaryEncode(root, new String());
+    }
+
+    private static void binaryEncode(Node n, String s) {
+        if (n == null){
+            return;
+        }
+        binaryEncode(n.left, s + "0");
+        binaryEncode(n.right, s + "1");
+        if (n.ch != '\0'){
+            System.out.println(n.ch + ":" + s);
+            binaryCodeTable.put(n.ch, s);
+        }
     }
 }
