@@ -1,3 +1,4 @@
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.io.*;
 
@@ -53,16 +54,19 @@ public class HuffmanCoding {
             queue.add(temp);
             number++;
         }
-        System.out.println(number);
+
         Node root = huffmanEncoding(number);
-        System.out.println(root);
 
         binaryEncode(root, new String());
         String result = new String();
         for (int i = 0; i < text.length(); i++){
-            result = result + binaryCodeTable.get(text.charAt(i)) +" ";
+            result = result + binaryCodeTable.get(text.charAt(i)) +"";
         }
         System.out.println(result);
+
+        int originDataByteSize = text.getBytes(StandardCharsets.UTF_8).length;
+        System.out.println("기존 데이터 사이즈: " + originDataByteSize * 8 + "Bit");
+        System.out.println("인코딩 데이터 사이즈: " + result.length() + "Bit");
     }
 
     private static void binaryEncode(Node n, String s) {
