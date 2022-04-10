@@ -17,7 +17,16 @@ class FrequencyComparator implements Comparator<Node>{
 
 public class HuffmanCoding {
     public static PriorityQueue<Node> queue;
-
+    public static Node huffmanEncoding(int n){
+        for (int i = 0; i < n - 1; i++){
+            Node temp = new Node();
+            temp.right = queue.poll();
+            temp.left = queue.poll();
+            temp.freq = temp.right.freq + temp.left.freq;
+            queue.add(temp);
+        }
+        return queue.poll();
+    }
     public static void main(String[] args) throws IOException {
         String text = new Scanner(new File("src/alice.txt")).next();
         System.out.println(text);
@@ -43,5 +52,7 @@ public class HuffmanCoding {
             number++;
         }
         System.out.println(number);
+        Node root = huffmanEncoding(number);
+        System.out.println(root);
     }
 }
