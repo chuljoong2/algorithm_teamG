@@ -1,7 +1,7 @@
 package PackageNo2;
 
 public class ChainedMatrix {
-	final static int INF = Integer.MAX_VALUE / 2; // null값
+	final static int INF = Integer.MAX_VALUE / 2; // INF값
 
 	public static void main(String[] args) {
 		int[][] Mult = {
@@ -25,7 +25,7 @@ public class ChainedMatrix {
 				for(int k = i ; k < j-1 ; k++)
 				{
 					int temp = 0; // 연산값
-					if(temp < Mult[i][j])
+					if(temp < Mult[i][j]) //연산값이 행렬에 있는 값보다 작으면 행렬 업데이트
 						Mult[i][j] = temp;
 				}
 			}
