@@ -19,14 +19,14 @@ public class ChainedMatrixMultiplications {
             for (int i = 1; i <= n-1-L; i++) {
                 int j = i + L;
                 if (i == j){
-                    m[i][j] = 0;  //행렬의 대각성분 0으로 초기화
+                    m[i][j] = 0;
                     continue;
                 }
                 m[i][j] = INF;
                 for (int k = i; k <= j-1; k++){
-                    m[i][j] = Math.min(m[i][j], m[i][k] + m[k+1][j] + d[i-1]*d[k]*d[j]);  //연산값과 기존값중 작은값을 업데이트
+                    m[i][j] = Math.min(m[i][j], m[i][k] +m[k+1][j] + d[i-1]*d[k]*d[j]);
                 }
-                System.out.println(m[i][j]);
+
             }
         }
         System.out.println(m[1][n-1]); // answer
