@@ -36,7 +36,7 @@ while {Q의 Node 수 >= 2} {
 }
 return Q
 ```
-### **빈도수** 체크 코드
+### **빈도수** 체크
 
 노드 클래스를 선언한다.
 ```java
@@ -60,7 +60,7 @@ class Node {
 	{
 ``` 
 
-### 전체 구현 코드(**빈도수 구현** 코드 포함)
+### 빈도수 체크 코드
 ```java
 import java.util.HashMap;
 import java.util.Set;
